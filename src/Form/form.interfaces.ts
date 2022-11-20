@@ -1,5 +1,3 @@
-import { ICustomComponentOptions } from '../WrapperControl/interfaces';
-
 export interface IFormOptions {
   uiSchema: {
     id: string;
@@ -8,6 +6,6 @@ export interface IFormOptions {
   }[];
   renderers: {
     id: string;
-    renderer: ((options: ICustomComponentOptions<any>) => JSX.Element);
+    renderer: (props: { options: any }) => JSX.Element;
   }[];
 }

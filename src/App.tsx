@@ -2,13 +2,14 @@ import React from 'react';
 import './App.css';
 import { Text } from './components/Text';
 import { Form } from './Form/Form';
+import { WrapperControl } from './WrapperControl/WrapperControl';
 
 function App() {
   return (
     <div className="App">
       <Form 
         renderers={[
-          { id: 'textbox', renderer: Text }
+          { id: 'textbox', renderer: WrapperControl(Text) }
         ]}
 
         uiSchema={[
@@ -31,6 +32,13 @@ function App() {
             renderer: 'textbox',
             options: {
               path: 'age'
+            }
+          },
+          {
+            id: "4",
+            renderer: 'textbox',
+            options: {
+              path: 'job'
             }
           }
         ]}

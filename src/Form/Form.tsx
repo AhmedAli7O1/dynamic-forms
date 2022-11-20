@@ -1,10 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { FormContext } from '../form.context';
 import './Form.css';
-import { Text } from '../components/Text';
 import { IFormOptions } from './form.interfaces';
-import { WrapperControl } from '../WrapperControl/WrapperControl';
-
 
 
 export function Form ({ renderers, uiSchema }: IFormOptions) {
@@ -28,12 +25,8 @@ export function Form ({ renderers, uiSchema }: IFormOptions) {
         <>
           {
             uiSchema.map((element) => {
-              const rd = renderers.find(x => x.id === element.renderer)!;
-              const Comp = WrapperControl(rd.renderer);
-              
-              return (
-                <Comp key={element.id} options={element.options} />
-              );
+              const { renderer: Renderer } = renderers.find(x => x.id === element.renderer)!;
+              return <Renderer key={element.id} options={element.options} />;
             })
           }
         </>
